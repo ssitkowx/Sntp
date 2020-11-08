@@ -22,7 +22,7 @@
 class SystemTime
 {
     private:
-        static SystemTime * instance;
+        static inline SystemTime * instance;
 
     protected:
         static std::chrono::system_clock::time_point timePoint;
