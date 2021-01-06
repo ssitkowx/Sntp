@@ -31,15 +31,15 @@ class SystemTime
         SystemTime          () = default;
         virtual ~SystemTime () = default;
 
-        static void          SetInstance   (SystemTime * v_instance);
-        static SystemTime *  GetInstance   (void);
+        static void         SetInstance   (SystemTime * v_instance);
+        static SystemTime * GetInstance   (void);
 
-        virtual void         Update        (void)                                  = 0;
-        virtual std::string  ToStringUTC   (void)                            const = 0;
-        virtual std::string  ToString      (const char * v_format = nullptr) const = 0;
+        virtual void        Update        (void)                                  = 0;
+        virtual std::string ToStringUTC   (void)                            const = 0;
+        virtual std::string ToString      (const char * v_format = nullptr) const = 0;
 
-        inline std::time_t   InSeconds     (void)                            const;
-        inline int64_t       InMiliseconds (void);
+        inline std::time_t  InSeconds     (void)                            const;
+        inline int64_t      InMiliseconds (void);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
