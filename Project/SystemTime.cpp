@@ -25,17 +25,6 @@ SystemTime * SystemTime::GetInstance (void)
     return instance;
 }
 
-std::time_t SystemTime::InSeconds (void) const
-{
-    return std::chrono::system_clock::to_time_t (timePoint);
-}
-
-int64_t SystemTime::InMiliseconds (void)
-{
-    auto duration = timePoint.time_since_epoch ();
-    return std::chrono::duration_cast<std::chrono::milliseconds> (duration).count ();
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// END OF FILE ///////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////

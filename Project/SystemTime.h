@@ -7,7 +7,6 @@
 #include <ctime>
 #include <chrono>
 #include <string>
-#include <memory>
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
@@ -37,9 +36,16 @@ class SystemTime
         virtual void        Update        (void)                                  = 0;
         virtual std::string ToStringUTC   (void)                            const = 0;
         virtual std::string ToString      (const char * v_format = nullptr) const = 0;
+        std::time_t         InSeconds     (void) const 
+        { 
+            return std::chrono::system_clock::to_time_t (timePoint); 
+        }
 
-        inline std::time_t  InSeconds     (void)                            const;
-        inline int64_t      InMiliseconds (void);
+        constexpr int64_t   InMiliseconds (void) const
+        {
+            auto duration = timePoint.time_since_epoch ();
+            return std::chrono::duration_cast<std::chrono::milliseconds> (duration).count ();
+        }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
