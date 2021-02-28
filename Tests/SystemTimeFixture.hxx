@@ -4,7 +4,7 @@
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "SystemTimeMock.hxx"
+#include "SystemTimeHw.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
@@ -14,7 +14,7 @@ class SystemTimeFixture : public ::testing::Test
 {
     public:
         static constexpr char * MODULE = (char *)"SystemTimeFixture";
-        SystemTimeMock          SystemTimeMock;
+        SystemTimeHw            SystemTimeHw;
 
         SystemTimeFixture () = default;
         ~SystemTimeFixture () = default;
