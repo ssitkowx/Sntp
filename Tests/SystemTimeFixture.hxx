@@ -14,7 +14,7 @@ class SystemTimeFixture : public ::testing::Test
 {
     public:
         static constexpr char * MODULE = (char *)"SystemTimeFixture";
-        SystemTimeHw            SystemTimeHw;
+        class SystemTimeHw      SystemTimeHw;
 
         SystemTimeFixture () = default;
         ~SystemTimeFixture () = default;
