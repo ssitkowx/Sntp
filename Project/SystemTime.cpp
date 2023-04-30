@@ -14,15 +14,15 @@ std::chrono::system_clock::time_point SystemTime::timePoint;
 //////////////////////////////// FUNCTIONS ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-void SystemTime::SetInstance (SystemTime * v_instance) { instance = v_instance; }
+void SystemTime::SetInst (SystemTime * v_inst) { inst = v_inst; }
 
-SystemTime * SystemTime::GetInstance (void)
+SystemTime * SystemTime::GetInst (void)
 {
     time_t currentTime;
     time (&currentTime);
     timePoint = std::chrono::system_clock::from_time_t (currentTime);
 
-    return instance;
+    return inst;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

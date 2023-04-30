@@ -12,7 +12,7 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#define SET_SYSTEM_TIME_INST(INSTANCE) SystemTime::SetInstance (INSTANCE);
+#define SET_SYSTEM_TIME_INST(INST) SystemTime::SetInst (INST);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
@@ -21,7 +21,7 @@
 class SystemTime
 {
     private:
-        static inline SystemTime * instance;
+        static inline SystemTime * inst;
 
     protected:
         static std::chrono::system_clock::time_point timePoint;
@@ -30,8 +30,8 @@ class SystemTime
         SystemTime          () = default;
         virtual ~SystemTime () = default;
 
-        static void         SetInstance   (SystemTime * v_instance);
-        static SystemTime * GetInstance   (void);
+        static void         SetInst   (SystemTime * v_inst);
+        static SystemTime * GetInst   (void);
 
         virtual void        Update        (void)                                  = 0;
         virtual std::string ToStringUTC   (void)                            const = 0;
