@@ -5,31 +5,30 @@
 #include "Utils.h"
 #include "LoggerHw.h"
 #include "gmock/gmock.h"
-#include "SystemTimeFixture.hxx"
+#include "SntpFixture.hxx"
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// FUNCTIONS ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-TEST_F (SystemTimeFixture, VisuallyCheckThatTheUnitOfTimeIsMiliSeconds)
+TEST_F (SntpFixture, VisuallyCheckThatTheUnitOfTimeIsMiliSeconds)
 {
     LOGW (MODULE, "CheckThatTheUnitOfTimeIsMiliSeconds");
-    LOGD (MODULE, "Miliseconds: ", SystemTimeHw::GetInst ()->InMiliseconds ());
-
+    LOGD (MODULE, "Miliseconds: ", SntpHw::GetInst ()->InMiliseconds ());
 }
 
-TEST_F (SystemTimeFixture, VisuallyCheckThatTheUnitOfTimeIsSeconds)
+TEST_F (SntpFixture, VisuallyCheckThatTheUnitOfTimeIsSeconds)
 {
     LOGW (MODULE, "CheckThatTheUnitOfTimeIsSeconds");
-    LOGD (MODULE, "Seconds: ", SystemTimeHw::GetInst ()->InSeconds ());
+    LOGD (MODULE, "Seconds: ", SntpHw::GetInst ()->InSeconds ());
 }
 
-TEST_F (SystemTimeFixture, CheckTheDiffBetweenTheTimeExpressedInSecAndMilisec)
+TEST_F (SntpFixture, CheckTheDiffBetweenTheTimeExpressedInSecAndMilisec)
 {
     LOGW (MODULE, "CheckTheDiffBetweenTheTimeExpressedInSecAndMilisec");
 
-    int64_t seconds     = SystemTimeHw::GetInst ()->InSeconds     ();
-    int64_t miliseconds = SystemTimeHw::GetInst ()->InMiliseconds ();
+    int64_t seconds     = SntpHw::GetInst ()->InSeconds     ();
+    int64_t miliseconds = SntpHw::GetInst ()->InMiliseconds ();
     int64_t difference  = miliseconds / seconds;
     LOGD      (MODULE, "Difference: ", difference);
     EXPECT_EQ (difference, ONE_THOUSAND);

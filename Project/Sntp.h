@@ -12,36 +12,36 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#define SET_SYSTEM_TIME_INST(INST) SystemTime::SetInst (INST);
+#define SET_SNTP_INST(INST) Sntp::SetInst (INST);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-class SystemTime
+class Sntp
 {
     private:
-        static inline SystemTime * inst;
+        static inline Sntp * inst;
 
     protected:
         static std::chrono::system_clock::time_point timePoint;
 
     public:
-        SystemTime          () = default;
-        virtual ~SystemTime () = default;
+        Sntp          () = default;
+        virtual ~Sntp () = default;
 
-        static void         SetInst   (SystemTime * v_inst);
-        static SystemTime * GetInst   (void);
+        static void   SetInst (Sntp * vInst);
+        static Sntp * GetInst (void);
 
-        virtual void        Update        (void)                                  = 0;
-        virtual std::string ToStringUTC   (void)                            const = 0;
-        virtual std::string ToString      (const char * v_format = nullptr) const = 0;
-        std::time_t         InSeconds     (void) const 
+        virtual void        Update      (void)                                 = 0;
+        virtual std::string ToStringUTC (void)                           const = 0;
+        virtual std::string ToString    (const char * vFormat = nullptr) const = 0;
+        std::time_t         InSeconds   (void) const 
         { 
             return std::chrono::system_clock::to_time_t (timePoint); 
         }
 
-        constexpr int64_t   InMiliseconds (void) const
+        constexpr int64_t InMiliseconds (void) const
         {
             auto duration = timePoint.time_since_epoch ();
             return std::chrono::duration_cast<std::chrono::milliseconds> (duration).count ();

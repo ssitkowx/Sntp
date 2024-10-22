@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 2.16)
-PROJECT                (systemtime)
+PROJECT                (sntp)
 
 SET (ProjectName            Project)
 SET (TestsName              Tests)

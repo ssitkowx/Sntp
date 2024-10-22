@@ -4,20 +4,20 @@
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "SystemTimeHw.h"
+#include "SntpHw.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-class SystemTimeFixture : public ::testing::Test
+class SntpFixture : public ::testing::Test
 {
     public:
-        static constexpr char * MODULE = (char *)"SystemTimeFixture";
-        class SystemTimeHw      SystemTimeHw;
+        static constexpr char * MODULE = (char *)"SntpFixture";
+        class SntpHw            SntpHw;
 
-        SystemTimeFixture () = default;
-        ~SystemTimeFixture () = default;
+        SntpFixture () = default;
+        ~SntpFixture () = default;
 
         void TestBody () override { }
         void SetUp    () override { }
