@@ -30,8 +30,8 @@ class Sntp
         Sntp          () = default;
         virtual ~Sntp () = default;
 
-        static void SetInst (Sntp * vInst);
-        Sntp *      operator ()();
+        static void   SetInst (Sntp * vInst);
+        static Sntp * GetInst (void);
 
         virtual void        Update      (void)                                 = 0;
         virtual std::string ToStringUTC (void)                           const = 0;

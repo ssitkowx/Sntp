@@ -14,21 +14,21 @@
 TEST_F (SntpFixture, VisuallyCheckThatTheUnitOfTimeIsMiliSeconds)
 {
     LOGW (Module, "CheckThatTheUnitOfTimeIsMiliSeconds");
-    LOGD (Module, "Miliseconds: ", SntpHw ()->InMiliseconds ());
+    LOGD (Module, "Miliseconds: ", SntpHw::GetInst ()->InMiliseconds ());
 }
 
 TEST_F (SntpFixture, VisuallyCheckThatTheUnitOfTimeIsSeconds)
 {
     LOGW (Module, "CheckThatTheUnitOfTimeIsSeconds");
-   LOGD (Module, "Seconds: ", SntpHw ()->InSeconds ());
+   LOGD (Module, "Seconds: ", SntpHw::GetInst ()->InSeconds ());
 }
 
 TEST_F (SntpFixture, CheckTheDiffBetweenTheTimeExpressedInSecAndMilisec)
 {
     LOGW (Module, "CheckTheDiffBetweenTheTimeExpressedInSecAndMilisec");
 
-    int64_t seconds     = SntpHw ()->InSeconds     ();
-    int64_t miliseconds = SntpHw ()->InMiliseconds ();
+    int64_t seconds     = SntpHw::GetInst ()->InSeconds     ();
+    int64_t miliseconds = SntpHw::GetInst ()->InMiliseconds ();
     int64_t difference  = miliseconds / seconds;
     LOGD      (Module, "Difference: ", difference);
     EXPECT_EQ (difference, ONE_THOUSAND);

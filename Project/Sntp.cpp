@@ -16,7 +16,7 @@ std::chrono::system_clock::time_point Sntp::timePoint;
 
 void Sntp::SetInst (Sntp * vInst) { inst = vInst; }
 
-Sntp * Sntp::operator ()()
+Sntp * Sntp::GetInst (void)
 {
     time_t currentTime;
     time (&currentTime);
