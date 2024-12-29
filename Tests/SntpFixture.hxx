@@ -13,7 +13,7 @@
 class SntpFixture : public ::testing::Test
 {
     public:
-        static constexpr char * MODULE = (char *)"SntpFixture";
+        static constexpr char * Module = (char *)"SntpFixture";
         class SntpHw            SntpHw;
 
         SntpFixture () = default;
