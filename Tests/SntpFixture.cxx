@@ -31,7 +31,7 @@ TEST_F (SntpFixture, CheckTheDiffBetweenTheTimeExpressedInSecAndMilisec)
     int64_t miliseconds = SntpHw::GetInst ()->InMiliseconds ();
     int64_t difference  = miliseconds / seconds;
     LOGD      (Module, "Difference: ", difference);
-    EXPECT_EQ (difference, ONE_THOUSAND);
+    EXPECT_EQ (difference, 1000);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
